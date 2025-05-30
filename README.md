@@ -1,13 +1,11 @@
 <div className="max-w-full overflow-x-auto custom-scrollbar flex justify-center">
-  <div className="card bg-white ml-3 dark:bg-white/[0.03] p-6 rounded-xl shadow-md w-full lg:w-[48%] lg:h-[20%]">
+  <div className="card bg-white ml-3 dark:bg-white/[0.03] p-6 rounded-xl shadow-md w-full lg:w-[90%]">
     <Table>
       <TableHeader className="border-t border-gray-100 dark:border-white/[0.05]">
         <TableRow>
-          {/* Optional empty header cell if needed */}
-          <TableCell isHeader className="px-4 py-3 border border-gray-100 dark:border-white/[0.05]" />
           {[
             { key: "company", label: "Company" },
-            { key: "Title", label: "Title" },
+            { key: "title", label: "Title" },
             { key: "start_date", label: "Start Date" },
             { key: "end_date", label: "End Date" },
             { key: "is_current", label: "Is Current" },
@@ -16,36 +14,35 @@
             <TableCell
               key={key}
               isHeader
-              className="px-4 py-3 border border-gray-100 dark:border-white/[0.05]"
+              className="px-4 py-3 min-w-[120px] border border-gray-100 dark:border-white/[0.05] text-left"
             >
-              <div className="flex items-center justify-between cursor-pointer">
-                <p className="font-medium text-gray-700 text-theme-xs dark:text-gray-400">
-                  {label}
-                </p>
-              </div>
+              <p className="font-semibold text-gray-700 text-sm dark:text-gray-400">
+                {label}
+              </p>
             </TableCell>
           ))}
         </TableRow>
       </TableHeader>
+
       <TableBody>
         {experienceData.map((item, index) => (
           <TableRow key={index}>
-            <TableCell className="px-4 py-4 font-medium text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap">
+            <TableCell className="px-4 py-3 min-w-[120px] font-semibold text-gray-800 border border-gray-100 dark:border-white/[0.05] text-sm dark:text-gray-300 whitespace-nowrap">
               {item.company}
             </TableCell>
-            <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap">
+            <TableCell className="px-4 py-3 min-w-[120px] text-gray-700 border border-gray-100 dark:border-white/[0.05] text-sm dark:text-gray-400 whitespace-nowrap">
               {item.title}
             </TableCell>
-            <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap">
+            <TableCell className="px-4 py-3 min-w-[120px] text-gray-700 border border-gray-100 dark:border-white/[0.05] text-sm dark:text-gray-400 whitespace-nowrap">
               {item.start_date}
             </TableCell>
-            <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap">
+            <TableCell className="px-4 py-3 min-w-[120px] text-gray-700 border border-gray-100 dark:border-white/[0.05] text-sm dark:text-gray-400 whitespace-nowrap">
               {item.end_date}
             </TableCell>
-            <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap">
+            <TableCell className="px-4 py-3 min-w-[120px] text-gray-700 border border-gray-100 dark:border-white/[0.05] text-sm dark:text-gray-400 whitespace-nowrap">
               {item.is_current ? "Yes" : "No"}
             </TableCell>
-            <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap">
+            <TableCell className="px-4 py-3 min-w-[120px] text-gray-700 border border-gray-100 dark:border-white/[0.05] text-sm dark:text-gray-400 whitespace-nowrap">
               {item.duration_in_months}
             </TableCell>
           </TableRow>
