@@ -1,92 +1,82 @@
-# AbHire HR Knowledge Base – Company Management Module
 
-This document serves as a step-by-step guide to help **admins** understand the functionalities of the **Company Management Module** in the AbHire portal.
+# HR Knowledge Base - User Profile Module
 
----
+## Overview
 
-## 📁 Module: Company Info
-
-This section stores the fundamental details of your company and allows you to update it at any time.
-
-### 🔹 Basic Details
-- **Company Name**: The official name of the organization.
-- **Location**: A general reference to where the company operates.
-- **Company Domain**: This field helps classify the type of business or technical domain.
-- **Country, Currency, Time Zone**: Used to localize and tailor platform features accordingly.
-
-✅ **Admin Action**: Use the “Edit” button to update basic company profile data.
+The **User Profile** module allows users and administrators to view and manage personal profile settings. This includes updating personal information, managing location details, and changing the account password.
 
 ---
 
-### 🔹 Business Details
-- **Description**: Short summary about the business.
-- **Industry**: Default value is set to “Software.”
-- **Company Size**: Choose from standard ranges (e.g., 1–10 employees).
-- **Website & Phone Number**: Contact references.
-- **GST No.**: For Indian tax compliance.
+## 1. Profile Section
 
-✅ **Admin Action**: All fields editable by clicking **Edit**.
+Displays basic profile details for the user such as:
 
----
+- **Profile Photo**
+- **Full Name** (e.g., Satya Katari)
+- **Designation** (e.g., Lead Developer)
+- **Location** (City, State, Country)
 
-### 🔹 Location
-- **Full Address, City, State, Postal Code**: Used for correspondence.
-- **Logo URL**: Image representing your company.
-- **Google Map URL**: Location reference via Google Maps.
+> 🔧 Use the **Edit** option to update name, phone number, or designation.
 
 ---
 
-## 👥 Manage Team
+## 2. Personal Information
 
-### 🔹 Invite a Team Member
-- **Enter email address** ending with your company's domain (e.g., `@adbinary.com`).
-- **Select role**: Assign permission level (e.g., Recruiter, Admin).
-- **Click Invite** to send an invitation.
+Fields available for update:
 
-### 🔹 Team Members Table
-- Shows list of active users.
-- **Actions**:
-  - **Change Role**: Modify user access.
-  - **Remove**: Delete a team member from the portal.
+- **First Name**
+- **Last Name**
+- **Phone Number**
+- **Designation**
 
-🔍 Search and Pagination available for efficient management.
+### Instructions:
 
----
+1. Click on the **Edit** button.
+2. Modify the required fields.
+3. Save the changes.
 
-## 💼 Subscription Plans
-
-Admins can view and select subscription plans:
-- **Basic Plan** – $49/month (5 users)
-- **Pro Plan** – $199/month (10 users)
-- **Enterprise** – Custom pricing (Contact Sales)
-
-✅ Click “Select” to choose the required plan.
+> 💡 Ensure phone numbers follow valid formats to avoid errors.
 
 ---
 
-## 📚 Docsify Integration
+## 3. Location
 
-To make this documentation browsable:
+This section includes:
 
-### Step 1: Install Docsify
-```bash
-npm i docsify-cli -g
-docsify init ./docs
-```
+- **City**
+- **State**
+- **Country**
+- **Postal Code**
+- **Time Zone** (e.g., Asia/Kolkata)
 
-### Step 2: Place this Markdown file (`Company_Management_HR_Knowledge_Base.md`) inside the `./docs` folder.
+### Instructions:
 
-### Step 3: Run the server locally
-```bash
-docsify serve docs
-```
+1. Click **Edit** to update location-specific fields.
+2. Select appropriate time zone for accurate timestamping.
+3. Click **Save**.
 
-This will render the documentation with:
-- Sidebar Navigation
-- Markdown content
-- Search & images
-- Simple structure for easy maintenance
+> 🌐 This information helps tailor communication and scheduling features.
 
 ---
 
-📌 **Tip:** Regularly update this file as portal features evolve.
+## 4. Change Password
+
+To update your account security credentials:
+
+- **Old Password**: Enter your current password.
+- **New Password**: Create a strong new password.
+- **Confirm New Password**: Re-enter for confirmation.
+
+### Instructions:
+
+1. Input the required values.
+2. Click **Update Password**.
+
+> 🔒 A strong password should contain at least 8 characters, including a number and a special character.
+
+---
+
+## Summary
+
+The User Profile module is critical for maintaining up-to-date user records and enabling secure access. Encourage all team members to regularly review and update their information.
+
