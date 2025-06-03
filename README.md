@@ -1,112 +1,56 @@
-# ✏️ Edit Job Details – Admin Panel
+# ⚙️ Job Preferences – Admin Guide
 
-This page allows admins to **view, update, and enhance job listings** by modifying key attributes such as job preferences, recruiter assignments, interview rounds, and additional questions.
+This section enables administrators to **configure automated job matching and candidate shortlisting preferences** for a particular job opening. Proper configuration improves the accuracy of candidate screening through AI and automation features.
 
 ---
 
-## 🧾 Section 1: Job Overview
+## 📊 Weight Configuration Settings
+
+These weight percentages define how different factors are prioritized in the candidate shortlisting process. Enter values from **0% to 100%** based on importance.
 
 | Field | Description |
 |-------|-------------|
-| **Job Title*** | Required. Title of the job role (e.g., `Front End Developer 1`). |
-| **Job Code** | System-generated identifier (e.g., `AD-25029`). |
-| **Client Name** | Associated client or department (e.g., `AdBinary`). |
-| **Location** | Work location; can be physical address or "Remote". |
-| **Job Type*** | Required. Type of employment – `Contract`, `Full-Time`, etc. |
-| **Work Model*** | Required. Options include `Remote`, `On-site`, or `Hybrid`. |
-| **Work Hours** | General work shift (e.g., `08:00 AM to 05:00 PM`). |
-| **Number of Open Positions** | Specifies how many roles are open (e.g., `1`). |
-| **Industry** | Domain or sector (e.g., `Technology`). |
+| **Skills Matching Threshold*** | Minimum match required between candidate and job-required skills (e.g., `70%`). |
+| **Job Description Match Threshold*** | Candidate profiles must match this percentage of the job description content. |
+| **Salary Expectation Weight*** | How heavily a candidate's salary expectations are weighed during shortlisting. |
+| **Skill Match Weight*** | Defines the weight of skill matching in the overall ranking. |
+| **Experience Weight*** | Determines how much work experience affects candidate scores. |
+| **Notice Period Weight*** | Gives priority to candidates with shorter or preferred notice periods. |
 
 ---
 
-## 💰 Compensation Details
+## 🔎 Candidate Shortlisting
 
 | Field | Description |
 |-------|-------------|
-| **Salary Currency*** | Required. Currency used (e.g., `INR`). |
-| **Minimum Salary*** | Required. Entry-level salary (e.g., `₹10,000`). |
-| **Maximum Salary*** | Required. Cap salary (e.g., `₹20,000`). |
+| **Number of Candidates to Shortlist*** | Specify how many top-matching candidates to shortlist for review. |
+| **Exclude Keywords** | Input keywords to filter out resumes. Example: `fresher`, `intern`, etc. |
+
+This ensures irrelevant profiles are excluded during AI shortlisting.
 
 ---
 
-## 📝 Job Description
+## 🤖 Automation Settings
 
-- **New Job 1 Description**  
-  Admin can enter or update full job responsibilities, expectations, and scope of work.
-
----
-
-## 🛠️ Skills Required
-
-Add or remove technical or soft skills related to the job role. The example includes:
-
-- MSBI  
-- Bug Fixing  
-- Backup and Recovery  
-- APIs  
-- Bootstrap
-
-Use the **“Add Skill”** option to append new skills.
+| Toggle | Function |
+|--------|----------|
+| **Enable Auto Screening** | Automatically screen candidates based on thresholds and weights. |
+| **Enable WhatsApp Alerts** | Sends interview reminders and updates via WhatsApp. |
+| **WhatsApp Alert Before Interview** | Select how long before the interview a message should be sent (e.g., `1 hour`, `1 day`). |
+| **Number of AI Call Retries** | Define how many times the system should retry AI-based calling if the candidate does not respond. |
 
 ---
 
-## 📈 Experience & Education Requirements
+## 💾 Actions
 
-| Field | Description |
-|-------|-------------|
-| **Experience Level*** | Required. Select from ranges like `Entry Level (0–2 Years)`, `Mid Level`, etc. |
-| **Education Level*** | Required. Select the minimum qualification (e.g., `Master’s Degree`). |
+- **Save Changes**: Apply all preference settings.
+- **Close**: Exit without saving.
 
----
-
-## 👥 Recruiter Assignment
-
-Recruiters responsible for this job can be assigned or updated.
-
-- **Assigned Recruiter(s)**: `Satya Katari`
+> ⚠️ Make sure all required fields (marked with `*`) are configured before saving to ensure AI-based shortlisting works effectively.
 
 ---
 
-## 📓 Notes Section
+## 🔐 Admin Notes
 
-Admins can leave notes for internal tracking or communication.
-
----
-
-## 🧪 Interview Rounds
-
-List and manage interview stages.
-
-| Round No. | Round Name | Duration | AI Scheduling | Action |
-|-----------|------------|----------|---------------|--------|
-| 1         | Technical  | 15 min   | No            |        |
-| 2         | HR         | 30 min   | Yes           |        |
-
-**Actions**: Add, edit, delete rounds using the **“Add New Round”** button.
-
----
-
-## ❓ Additional Questions
-
-Used for pre-screening applicants.
-
-| Question    | Expected Answer | Is Mandatory |
-|-------------|------------------|--------------|
-| Relocation? | Yes              | Yes          |
-
-**Actions**: Use “Add New Question” to expand the pre-screening process.
-
----
-
-## 💾 Final Actions
-
-- Click **Save Changes** to confirm and persist all updates.
-- Ensure all required fields marked with `*` are filled before saving.
-
----
-
-## 🔐 Admin Access Only
-
-This interface should only be accessible by users with elevated admin privileges to maintain job listing integrity.
+Only authorized administrators should configure these settings. Improper threshold weights may result in inaccurate candidate shortlisting.
 
