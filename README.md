@@ -19,3 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 800); // Ensure DOM and search plugin are ready
 });
 </script>
+<style>
+.search input:not(.nav-search) {
+  display: none !important;
+}
+</style>
