@@ -1,71 +1,106 @@
-# 🧑‍💼 Candidate Profiles
+# 📋 Job Overview Module
 
-The **Candidate Profiles** module is the central location to view, track, and manage all job applicants in the AbHire portal. Each profile contains detailed personal, professional, and application-related data.
+The **Job Overview** page in the AbHire portal enables Admins and Recruiters to create and manage job postings with detailed specifications. This section is essential for ensuring each job is well-defined before publishing it to candidates or proceeding with interview stages.
 
 ---
 
-## 📄 Candidate Overview
-
-Each candidate profile contains the following fields:
+## 🧾 Basic Job Details
 
 | Field | Description |
 |-------|-------------|
-| **Name** | Full name of the applicant |
-| **Phone** | Contact number (used for interviews and communication) |
-| **Email** | Primary email address |
-| **Location** | City, state, or remote |
-| **Experience** | Total years of professional experience |
-| **Notice Period** | Time required to join if selected |
-| **Expected CTC** | Expected salary from the organization |
-| **Current Status** | Application stage (e.g., Initial Screening, Interview Scheduled, Offered, Rejected) |
+| **Job Title** | Name of the position (e.g., Python Developer) |
+| **Job Code** | Unique identifier (e.g., ALL-25005) |
+| **Client Name** | The client or company hiring for the position |
+| **Location** | Job location (e.g., Hyderabad) |
+| **Work Model** | Options: Onsite, Remote, Hybrid |
+| **Number of Open Positions** | Total vacancies for this role |
+| **Salary** | Expected compensation for the role |
+| **Salary Currency** | Default: INR |
 
 ---
 
-## 📝 Application Data
+## 📝 Job Description & Skills
 
-- **Job Applied For**: Displays the job title and code the candidate applied to.
-- **Matching Score**: A percentage value indicating how well the candidate matches the job requirements.
-- **Resume / CV**: Upload or view candidate’s resume.
-- **Documents**: Option to upload supporting documents (certifications, ID proof, etc.).
-
----
-
-## 📆 Interviews & Feedback
-
-The system displays:
-
-- **Interview History**: List of interviews scheduled with date, time, round, and interviewer name.
-- **Interview Feedback**: Comments and results shared by the interviewer.
-- **Status Updates**: Changes made to the candidate's status (e.g., moved to Final Round, Rejected, Offer Sent).
-
----
-
-## 🔧 Actions Available to Admin
-
-| Action | Description |
+| Section | Description |
 |--------|-------------|
-| **Edit Profile** | Update candidate's personal or application data |
-| **Add Note** | Add internal comments visible to HR only |
-| **Change Status** | Update the application stage (e.g., Rejected, On Hold, Hired) |
-| **Schedule Interview** | Directly schedule a round from the profile |
-| **Download Resume** | Export the candidate’s resume |
+| **Job Description** | Detailed text about responsibilities, expectations, and scope |
+| **Skills Required** | Add multiple required skills using "+Add Skill" (e.g., Security Management, Performance Tuning) |
 
 ---
 
-## 🧠 Best Practices for Admins
+## 🔧 Configuration Settings
 
-- Ensure candidate data is accurate before scheduling interviews.
-- Use consistent naming and labeling conventions for better searchability.
-- Always keep a note for changes made to a candidate's profile.
+| Setting | Purpose |
+|--------|---------|
+| **Job Type** | Contract, Full-Time, Part-Time |
+| **Work Hours** | Define standard or custom shift timing |
+| **Experience Level** | Entry (0-2 yrs), Mid, Senior, Director |
+| **Industry** | Choose relevant domain (e.g., Technology) |
+| **Minimum Salary** | Lower range of expected compensation |
+| **Maximum Salary** | Upper range of compensation |
 
 ---
 
-## 📚 Related Features
+## 🎯 Interview Rounds
+
+Admins can define one or more interview rounds for the job role.
+
+| Field | Description |
+|-------|-------------|
+| **Round No.** | Sequence of the round (e.g., 1, 2) |
+| **Round Name** | Descriptive title for the round (e.g., Technical, HR) |
+| **Duration** | Time in minutes (e.g., 45 mins) |
+| **AI Scheduling** | Toggle to enable AI-based calendar suggestions |
+| **Is Mandatory** | Mark if the round must be completed |
+
+> ✅ **+ Add New Round** allows you to configure additional stages with expected time and automation settings.
+
+---
+
+## ❓ Additional Questions
+
+Admins can attach screening questions to the job.
+
+| Field | Description |
+|-------|-------------|
+| **Question** | Open-ended or multiple-choice question |
+| **Expected Answer** | Optional - guideline for evaluators |
+| **Is Mandatory** | Indicates if answer is required during application |
+
+> ✅ **+ Add New Question** enables form-based input for creating filters and evaluation metrics.
+
+---
+
+## 🎓 Education & Recruiters
+
+| Field | Description |
+|-------|-------------|
+| **Education Level** | Required degree (e.g., Bachelor's Degree) |
+| **Assigned Recruiters** | Recruiters responsible for managing the job |
+
+---
+
+## 🗒 Notes
+
+Admins can add any **special instructions, client comments, or internal reminders** here.
+
+---
+
+## 🧠 Admin Guidelines
+
+- Ensure Job Title and Description are clear and compelling.
+- Always align the **Salary Range** with market standards.
+- Match **Skills** with the Job Description and Interview rounds.
+- Use **Notes** to document client expectations and communication.
+
+---
+
+## 🔗 Related Modules
 
 - [Schedule Interview](#/schedule-interview)
+- [Candidate Profiles](#/candidate-profiles)
 - [Hiring Panel](#/hiring-panel)
-- [Job Openings](#/job-openings)
 
 ---
 
-_Last Updated: {{auto-fill latest date}}_
+_Last Updated: {{auto-fill today's date}}_
