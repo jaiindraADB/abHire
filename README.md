@@ -1,63 +1,70 @@
-#  Hiring Panel
+# 🧑‍💼 Candidate Profiles
 
-This module allows administrators and recruiters to manage interviewers who will be part of the hiring process.
-
----
-
-## 🔍 Interviewer List View
-
-The table displays all the interviewers currently added to the system, with the following information:
-
-| Column          | Description |
-|------------------|-------------|
-| **Name**         | Full name of the interviewer |
-| **Email**        | Interviewer's contact email |
-| **Department**   | The department the interviewer belongs to |
-| **Designation**  | Job role or title of the interviewer |
-| **Time Zone**    | Time zone to align interview schedules |
-| **Schedules**    | Interview slots scheduled for this interviewer (if any) |
-| **Action**       | Options to Edit or Remove interviewer (if enabled) |
-
-- Supports **pagination**, **search**, and **row count per page** (default: 10 entries).
+The **Candidate Profiles** module is the central location to view, track, and manage all job applicants in the AbHire portal. Each profile contains detailed personal, professional, and application-related data.
 
 ---
 
-## ➕ Add New Interviewer
+## 📄 Candidate Overview
 
-To add a new member to the hiring panel, click **"Add New Interviewer"**, then fill in the required fields in the form:
+Each candidate profile contains the following fields:
 
-### 📋 Required Fields
-
-- **First Name***: Interviewer's first name
-- **Last Name***: Interviewer's last name
-- **Email Address***: Must be a valid email
-- **Department***: E.g., IT, Product, Design
-- **Designation***: E.g., Senior Developer, Team Lead
-- **Time Zone***: Select from dropdown (e.g., Asia/Kolkata, America/Denver)
-
-> ⚠️ All fields are mandatory. Time zone ensures accurate scheduling.
-
-### ✅ Save or Cancel
-
-- **Save Change**: Submits the interviewer details to the system.
-- **Close**: Cancels the form without saving.
+| Field | Description |
+|-------|-------------|
+| **Name** | Full name of the applicant |
+| **Phone** | Contact number (used for interviews and communication) |
+| **Email** | Primary email address |
+| **Location** | City, state, or remote |
+| **Experience** | Total years of professional experience |
+| **Notice Period** | Time required to join if selected |
+| **Expected CTC** | Expected salary from the organization |
+| **Current Status** | Application stage (e.g., Initial Screening, Interview Scheduled, Offered, Rejected) |
 
 ---
 
-## 🧠 Tips
+## 📝 Application Data
 
-- Use clear naming conventions for interviewers (avoid abbreviations).
-- Align the interviewer’s time zone with the candidate's availability.
-- Keep the panel updated by removing inactive or past interviewers.
+- **Job Applied For**: Displays the job title and code the candidate applied to.
+- **Matching Score**: A percentage value indicating how well the candidate matches the job requirements.
+- **Resume / CV**: Upload or view candidate’s resume.
+- **Documents**: Option to upload supporting documents (certifications, ID proof, etc.).
 
 ---
 
-## 🧩 How to Use
+## 📆 Interviews & Feedback
 
-1. Click **Add New Interviewer** to onboard someone to the panel.
-2. Use the search bar to quickly locate interviewers.
-3. Keep designations and departments consistent across users.
-4. Ensure time zones are selected carefully for calendar sync.
+The system displays:
+
+- **Interview History**: List of interviews scheduled with date, time, round, and interviewer name.
+- **Interview Feedback**: Comments and results shared by the interviewer.
+- **Status Updates**: Changes made to the candidate's status (e.g., moved to Final Round, Rejected, Offer Sent).
+
+---
+
+## 🔧 Actions Available to Admin
+
+| Action | Description |
+|--------|-------------|
+| **Edit Profile** | Update candidate's personal or application data |
+| **Add Note** | Add internal comments visible to HR only |
+| **Change Status** | Update the application stage (e.g., Rejected, On Hold, Hired) |
+| **Schedule Interview** | Directly schedule a round from the profile |
+| **Download Resume** | Export the candidate’s resume |
+
+---
+
+## 🧠 Best Practices for Admins
+
+- Ensure candidate data is accurate before scheduling interviews.
+- Use consistent naming and labeling conventions for better searchability.
+- Always keep a note for changes made to a candidate's profile.
+
+---
+
+## 📚 Related Features
+
+- [Schedule Interview](#/schedule-interview)
+- [Hiring Panel](#/hiring-panel)
+- [Job Openings](#/job-openings)
 
 ---
 
