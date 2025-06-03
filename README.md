@@ -1,82 +1,85 @@
+# Schedule Interview
 
-# HR Knowledge Base - User Profile Module
-
-## Overview
-
-The **User Profile** module allows users and administrators to view and manage personal profile settings. This includes updating personal information, managing location details, and changing the account password.
+This page allows the admin or recruiter to schedule interviews for candidates who have applied to specific job posts.
 
 ---
 
-## 1. Profile Section
+## 🧾 Job Post Details
 
-Displays basic profile details for the user such as:
-
-- **Profile Photo**
-- **Full Name** (e.g., Satya Katari)
-- **Designation** (e.g., Lead Developer)
-- **Location** (City, State, Country)
-
-> 🔧 Use the **Edit** option to update name, phone number, or designation.
-
----
-
-## 2. Personal Information
-
-Fields available for update:
-
-- **First Name**
-- **Last Name**
-- **Phone Number**
-- **Designation**
-
-### Instructions:
-
-1. Click on the **Edit** button.
-2. Modify the required fields.
-3. Save the changes.
-
-> 💡 Ensure phone numbers follow valid formats to avoid errors.
+- **Select Job Post**: Choose from the list of available jobs.
+- **Job Code, Title, Location**: Auto-filled once job is selected.
+- **Department & Client**: Specify department and client for the job.
+- **Open Positions**: Indicates how many positions are still available.
+- **Experience**: Required experience range for the job.
+- **Salary**: Salary offered for the position.
+- **Status**: Current status of the job post (e.g., Active, On Hold).
+- **Recruiter**: Assigned recruiter for this job.
 
 ---
 
-## 3. Location
+## 👤 Candidate Selection
 
-This section includes:
-
-- **City**
-- **State**
-- **Country**
-- **Postal Code**
-- **Time Zone** (e.g., Asia/Kolkata)
-
-### Instructions:
-
-1. Click **Edit** to update location-specific fields.
-2. Select appropriate time zone for accurate timestamping.
-3. Click **Save**.
-
-> 🌐 This information helps tailor communication and scheduling features.
+- **Select Candidate**: Choose a candidate to schedule interview.
+- **Name, Phone, Email**: Candidate details displayed.
+- **Matching Score**: AI-based compatibility score with job post.
+- **Status**: Candidate's current application status.
 
 ---
 
-## 4. Change Password
+## 👥 Interview Panel
 
-To update your account security credentials:
-
-- **Old Password**: Enter your current password.
-- **New Password**: Create a strong new password.
-- **Confirm New Password**: Re-enter for confirmation.
-
-### Instructions:
-
-1. Input the required values.
-2. Click **Update Password**.
-
-> 🔒 A strong password should contain at least 8 characters, including a number and a special character.
+- **Selected Panel Members**: Add Interviewers and Recruiter.
+- **Round No / Round Name**: Identify the current interview round (e.g., Round 1 - Technical).
+- **Interviewer Name**: Name of person interviewing.
 
 ---
 
-## Summary
+## 🛠️ Interview Details
 
-The User Profile module is critical for maintaining up-to-date user records and enabling secure access. Encourage all team members to regularly review and update their information.
+- **Interview Mode**: Choose mode – In-Person / Online.
+- **If In-Person**: Add Location (Modal opens to manage address).
+- **Interview Stage**: Example – Technical, Managerial, HR.
+- **Notice Period**: Candidate's notice period duration.
+- **Duration**: Expected interview duration (e.g., 30 min).
+- **Expected CTC**: Candidate’s expected salary.
+- **Location**: Interview location or remote.
 
+---
+
+## 🧠 AI Tips and Notes
+
+- **AI Tip**: Tips or suggestions powered by AI.
+- **Notes**: Manual notes by the recruiter or interviewer.
+
+---
+
+## 🗓️ Scheduling
+
+- **Calendar Type**: Choose calendar integration (e.g., Google, Outlook).
+- **Email**: Used to send invites/notifications.
+- **Time Zone**: Set correct timezone for scheduling.
+- **Date Time**: Select date and time of interview.
+
+---
+
+## 🔄 Interview Status & Result
+
+- **Interview Status**: (e.g., Scheduled, Completed, Rescheduled).
+- **Interview Result**: Mark outcome (e.g., Selected, Rejected).
+- **Availability**: View or update candidate’s availability.
+- **Schedule**: Final button to confirm and save the interview slot.
+
+---
+
+## 🧩 How to Use
+
+1. Select job post and candidate.
+2. Assign interviewers and configure round.
+3. Fill out all interview details.
+4. Schedule the interview using the final **Schedule** button.
+
+> ⚠️ Ensure all fields are reviewed before scheduling. Incomplete fields may cause sync failures with calendar or email.
+
+---
+
+_Last Updated: {{auto-fill latest date}}_
