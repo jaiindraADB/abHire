@@ -1,117 +1,120 @@
-# 📢 Post New Job Opening
+# 🧾 Interview Scheduling Interface – Admin Guide
 
-The **Post New Job Opening** module allows Admins and Recruiters to create new job posts by defining comprehensive details, preferences, and hiring workflows. This section is the foundation for candidate matching, scheduling, and end-to-end hiring automation.
-
----
-
-## 🧠 Page Overview
-
-The page includes multiple ways to create or configure a job:
-
-- 🔹 **Post New Job Opening**: Manual form to enter job details.
-- 🤖 **AI Job Post**: Auto-generates job descriptions and requirements.
-- 📄 **Copy from Templates**: Load pre-saved job templates.
-- ⚙️ **Job Preferences**: Configure optional filters, recruiter roles, or automation rules.
+This page is designed to help **Admins and Recruiters** schedule interviews efficiently by selecting job openings, candidates, and interviewers—all in one unified interface.
 
 ---
 
-## 📋 Job Overview Section
+## 1️⃣ Select Job Post
 
-| Field | Description |
-|-------|-------------|
-| **Job Title*** | Enter the name of the job position (e.g., Frontend Developer) |
-| **Client Name** | Company name or client if this is an outsourced position |
-| **Location** | Job location (e.g., Melbourne, Hyderabad) |
-| **Job Type*** | Select from Contract, Full-Time, Part-Time, Internship |
-| **Work Model*** | Choose from Onsite, Remote, or Hybrid |
-| **Work Hours** | Default: General - 08:00AM to 05:00PM. Can be customized. |
-| **Number of Open Positions** | Total roles to fill (e.g., 3) |
-| **Industry** | e.g., Technology, Finance, Healthcare |
-| **Salary** | Approximate salary details |
-| **Salary Currency*** | Choose currency (e.g., INR, AUD, USD) |
-| **Minimum Salary*** | Lowest acceptable offer |
-| **Maximum Salary*** | Highest acceptable offer |
+This section allows the admin to select the **job opening** for which the interview is being scheduled.
 
----
+### 📌 Columns Explained:
 
-## 📝 Job Details
+| Field            | Description                               |
+|------------------|-------------------------------------------|
+| **Job Code**     | Unique identifier for the job posting     |
+| **Title**        | Job title (e.g., Python Developer)        |
+| **Location**     | Job location (e.g., Hyderabad)            |
+| **Department**   | Department under which the job falls      |
+| **Client**       | Associated client for this role           |
+| **Open Positions** | Number of open slots to hire            |
+| **Experience**   | Required experience level                 |
+| **Salary**       | Offered salary                            |
+| **Status**       | Job status (Active/Closed)                |
+| **Recruiter**    | Assigned recruiter                        |
+| **Notes**        | Any admin notes relevant to the posting   |
 
-| Field | Description |
-|-------|-------------|
-| **Job Description** | Detailed responsibilities, tech stack, tools, etc. |
-| **Add Skill** | Manually add required skills |
-| **Skills Required*** | Select skills from the dropdown or add new ones |
+✅ **Action**: Click a job row to select it. This filters candidates and interviewers based on the selected job.
 
 ---
 
-## 🎓 Experience & Education
+## 2️⃣ Select Candidate
 
-| Field | Description |
-|-------|-------------|
-| **Experience Level*** | Entry, Mid, Senior, Director, etc. |
-| **Education Level*** | Bachelor's, Master's, Diploma, etc. |
+Once a job is selected, eligible **candidates** appear here for scheduling interviews.
 
----
+### 📌 Columns Explained:
 
-## 👥 Recruiters
+| Field             | Description                                      |
+|-------------------|--------------------------------------------------|
+| **Name**          | Candidate's full name                            |
+| **Phone**         | Contact number                                   |
+| **Email**         | Email ID                                         |
+| **Matching Score**| AI-generated score for job relevance             |
+| **Status**        | Application status (e.g., Applied, Shortlisted)  |
+| **Interview Stage** | Current round (e.g., Technical 1)              |
+| **Notice Period** | Remaining notice period in days                  |
+| **Expected CTC**  | Candidate’s expected salary                      |
+| **Location**      | Candidate’s location                             |
+| **AI Tip**        | AI-generated insight                             |
+| **Notes**         | Recruiter notes                                  |
 
-| Field | Description |
-|-------|-------------|
-| **Recruiters** | Assign internal team members who will manage this job opening |
-
----
-
-## 🗒 Notes
-
-Use this to add internal instructions, comments from clients, or important reminders related to this job opening.
-
----
-
-## 🧪 Interview Rounds (Post Save Only)
-
-> 🔒 **Note**: Interview Rounds can only be added after saving the job.
-
-| Field | Description |
-|-------|-------------|
-| **Round No.** | Numeric sequence of the round |
-| **Round Name** | e.g., Technical, HR, Managerial |
-| **Duration** | Time allocation (e.g., 45 minutes) |
-| **AI Scheduling** | Enable automatic calendar suggestions |
-
-✅ **Add New Round** once the job is saved.
+✅ **Action**: Click a candidate row to select and link to the job.
 
 ---
 
-## ❓ Additional Questions (Post Save Only)
+## 3️⃣ Interviewer and Recruiter
 
-> 🔒 **Note**: Questions can only be added after saving the job.
+This section allows assigning interviewers for each interview round.
 
-| Field | Description |
-|-------|-------------|
-| **Question** | Screening or evaluation question for applicants |
-| **Expected Answer** | Ideal or acceptable response |
-| **Is Mandatory** | Toggle to require candidate answer |
+### 📌 Columns Explained:
 
-✅ **Add New Question** once the job is saved.
+| Field             | Description                                     |
+|-------------------|-------------------------------------------------|
+| **Selected**      | Checkbox to include this interviewer            |
+| **Round No**      | Round number (e.g., 1, 2)                        |
+| **Round Name**    | Round label (e.g., Tech, HR)                    |
+| **Interviewer Name** | Full name of interviewer                     |
+| **Duration**      | Interview time duration                         |
+| **Interview Mode**| Online or In-person                             |
+| **Calendar Type** | Type of calendar (Google, Outlook, etc.)        |
+| **Email**         | Interviewer’s email                             |
+| **TimeZone**      | Time zone of interviewer                        |
+| **Interview Status** | Current scheduling status                    |
+| **Interview Result** | Outcome (to be filled post-interview)       |
 
----
-
-## ✅ Admin Best Practices
-
-- Use **AI Job Post** to speed up creation using intelligent prompts.
-- Define **clear job titles** and **skill sets** to improve candidate matching.
-- Keep **salary range realistic** and market-aligned.
-- Assign **responsible recruiters** to maintain accountability.
-- Use **Notes** for collaboration between Admins and Recruiters.
-
----
-
-## 🔗 Related Modules
-
-- [Job Overview](#/job-overview)
-- [Schedule Interview](#/schedule-interview)
-- [Candidate Profiles](#/candidate-profiles)
+✅ **Action**: Fill in and select the checkbox to confirm the interviewer.
 
 ---
 
-_Last Updated: {{ auto-generated }}_
+## 4️⃣ Interview Mode (Special Instruction)
+
+If you choose **“In-person”**, this section becomes **mandatory**:
+
+- **Add Location**: Specify the physical location.
+- A **popup/modal** will appear to enter the address.
+
+---
+
+## 5️⃣ Interviewer Availability
+
+This section reflects interviewer calendar availability.
+
+| Field       | Description                              |
+|-------------|------------------------------------------|
+| **Date Time** | Suggested interview date and time     |
+| **Availability** | Shows whether the slot is free     |
+| **Schedule** | Slot available for scheduling           |
+
+---
+
+## ✅ Final Step: Save and Schedule
+
+Once everything is configured:
+
+1. Confirm selected Job Post and Candidate.
+2. Assign Interviewers.
+3. Set Interview Mode and Location (if needed).
+4. Click **Schedule** to finalize and trigger calendar invites.
+
+---
+
+## 📌 Summary for Admins
+
+| Task              | What to Do                            |
+|-------------------|----------------------------------------|
+| Select Job        | From “Select Job Post” section         |
+| Choose Candidate  | From filtered list                     |
+| Assign Interviewer| Tick checkbox, fill details            |
+| Add Location      | If In-person mode selected             |
+| Finalize          | Click “Schedule” to trigger invites    |
+
