@@ -1,57 +1,92 @@
-# AbHire HR Knowledge Base – Job Openings Module
+# AbHire HR Knowledge Base – Company Management Module
 
-## Overview
-The **Job Openings** module allows HR administrators to manage all open job posts effectively. This includes adding new job listings, viewing current openings, and monitoring their status, experience requirements, assigned recruiters, and more.
-
----
-
-## Features and Field Descriptions
-
-| Field            | Description |
-|------------------|-------------|
-| **ID**           | Unique identifier for the job entry in the system. |
-| **Code**         | Job code generated for internal tracking. |
-| **Title**        | Title or designation of the job position (e.g., "Front End Developer"). |
-| **Location**     | Geographic or remote location of the job. |
-| **Open Posts**   | Number of openings for this job role. |
-| **Created at**   | Date the job post was created. |
-| **Status**       | Current progress of the hiring pipeline. E.g., `Active`, `Deleted`, `Initial Screening`, `Interview Scheduled`. |
-| **Experience Level** | Indicates the level of experience required (e.g., Entry Level (0-2 Years), Mid Level (3-5 Years), etc.). |
-| **Recruiters**   | HR staff assigned to this job post. |
-| **Action**       | Options to edit or update the job post details. |
+This document serves as a step-by-step guide to help **admins** understand the functionalities of the **Company Management Module** in the AbHire portal.
 
 ---
 
-## Actions Available
+## 📁 Module: Company Info
 
-- **Add New Job**: Opens a form to add a new job listing.
-- **Show Entries**: Allows users to toggle between 10, 25, or 50 job entries per page.
-- **Search**: Quickly search job posts by title, ID, recruiter, or location.
-- **Status Options**:
-  - `Active`: Job is visible and accepting applications.
-  - `Initial Screening`: Job is in the first stage of hiring.
-  - `Interview Scheduled`: Candidates are being interviewed.
-  - `Deleted`: The job post is removed but retained for records.
+This section stores the fundamental details of your company and allows you to update it at any time.
 
----
+### 🔹 Basic Details
+- **Company Name**: The official name of the organization.
+- **Location**: A general reference to where the company operates.
+- **Company Domain**: This field helps classify the type of business or technical domain.
+- **Country, Currency, Time Zone**: Used to localize and tailor platform features accordingly.
 
-## Usage Notes
-
-- If no experience level is selected, the system defaults to **Mid Level (3-5 Years)**.
-- Ensure job titles and codes are correctly filled for reporting accuracy.
-- The `Action` column is important for updating or removing job posts.
-- Use the **Search** feature to quickly locate job posts across large datasets.
+✅ **Admin Action**: Use the “Edit” button to update basic company profile data.
 
 ---
 
-## Screenshot Reference
+### 🔹 Business Details
+- **Description**: Short summary about the business.
+- **Industry**: Default value is set to “Software.”
+- **Company Size**: Choose from standard ranges (e.g., 1–10 employees).
+- **Website & Phone Number**: Contact references.
+- **GST No.**: For Indian tax compliance.
 
-> You can include UI screenshots under this section once available. Ensure each field mentioned above is annotated clearly in the image.
+✅ **Admin Action**: All fields editable by clicking **Edit**.
 
 ---
 
-## Future Enhancements
+### 🔹 Location
+- **Full Address, City, State, Postal Code**: Used for correspondence.
+- **Logo URL**: Image representing your company.
+- **Google Map URL**: Location reference via Google Maps.
 
-- Filter jobs by experience level and recruiter.
-- Bulk delete or archive inactive job posts.
-- Export job listings as Excel or PDF.
+---
+
+## 👥 Manage Team
+
+### 🔹 Invite a Team Member
+- **Enter email address** ending with your company's domain (e.g., `@adbinary.com`).
+- **Select role**: Assign permission level (e.g., Recruiter, Admin).
+- **Click Invite** to send an invitation.
+
+### 🔹 Team Members Table
+- Shows list of active users.
+- **Actions**:
+  - **Change Role**: Modify user access.
+  - **Remove**: Delete a team member from the portal.
+
+🔍 Search and Pagination available for efficient management.
+
+---
+
+## 💼 Subscription Plans
+
+Admins can view and select subscription plans:
+- **Basic Plan** – $49/month (5 users)
+- **Pro Plan** – $199/month (10 users)
+- **Enterprise** – Custom pricing (Contact Sales)
+
+✅ Click “Select” to choose the required plan.
+
+---
+
+## 📚 Docsify Integration
+
+To make this documentation browsable:
+
+### Step 1: Install Docsify
+```bash
+npm i docsify-cli -g
+docsify init ./docs
+```
+
+### Step 2: Place this Markdown file (`Company_Management_HR_Knowledge_Base.md`) inside the `./docs` folder.
+
+### Step 3: Run the server locally
+```bash
+docsify serve docs
+```
+
+This will render the documentation with:
+- Sidebar Navigation
+- Markdown content
+- Search & images
+- Simple structure for easy maintenance
+
+---
+
+📌 **Tip:** Regularly update this file as portal features evolve.
