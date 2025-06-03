@@ -1,56 +1,63 @@
-# ⚙️ Job Preferences – Admin Guide
+# 👤 Candidates Management – Admin Guide
 
-This section enables administrators to **configure automated job matching and candidate shortlisting preferences** for a particular job opening. Proper configuration improves the accuracy of candidate screening through AI and automation features.
-
----
-
-## 📊 Weight Configuration Settings
-
-These weight percentages define how different factors are prioritized in the candidate shortlisting process. Enter values from **0% to 100%** based on importance.
-
-| Field | Description |
-|-------|-------------|
-| **Skills Matching Threshold*** | Minimum match required between candidate and job-required skills (e.g., `70%`). |
-| **Job Description Match Threshold*** | Candidate profiles must match this percentage of the job description content. |
-| **Salary Expectation Weight*** | How heavily a candidate's salary expectations are weighed during shortlisting. |
-| **Skill Match Weight*** | Defines the weight of skill matching in the overall ranking. |
-| **Experience Weight*** | Determines how much work experience affects candidate scores. |
-| **Notice Period Weight*** | Gives priority to candidates with shorter or preferred notice periods. |
+The **Candidates** page allows administrators and recruiters to **view, manage, and upload candidates' profiles** for specific job openings.
 
 ---
 
-## 🔎 Candidate Shortlisting
+## 📋 Candidates Table Overview
 
-| Field | Description |
-|-------|-------------|
-| **Number of Candidates to Shortlist*** | Specify how many top-matching candidates to shortlist for review. |
-| **Exclude Keywords** | Input keywords to filter out resumes. Example: `fresher`, `intern`, etc. |
+This section displays all job openings along with candidate upload status.
 
-This ensures irrelevant profiles are excluded during AI shortlisting.
-
----
-
-## 🤖 Automation Settings
-
-| Toggle | Function |
-|--------|----------|
-| **Enable Auto Screening** | Automatically screen candidates based on thresholds and weights. |
-| **Enable WhatsApp Alerts** | Sends interview reminders and updates via WhatsApp. |
-| **WhatsApp Alert Before Interview** | Select how long before the interview a message should be sent (e.g., `1 hour`, `1 day`). |
-| **Number of AI Call Retries** | Define how many times the system should retry AI-based calling if the candidate does not respond. |
+| Column | Description |
+|--------|-------------|
+| **Code** | Unique Job Code (e.g., `@!-25020`, `AD-25029`). |
+| **Title** | Job title associated with the candidate upload (e.g., `Java Developer`). |
+| **Location** | Work location (`Remote`, `Onsite`, etc.). |
+| **Open Posts** | Number of positions open for that job. |
+| **Candidates Uploaded** | Number of candidate profiles uploaded to this job (if any). |
+| **Created At** | Date the job was created. |
+| **Status** | Job post status: `Active`, `Initial Screening`, `Deleted`, etc. |
+| **Experience Level** | Required experience level (e.g., `Entry`, `Mid`, `Lead`, `Director`). |
+| **Action** | Action buttons for uploading, editing, or viewing candidate details. |
 
 ---
 
-## 💾 Actions
+## 🔍 Search & Navigation
 
-- **Save Changes**: Apply all preference settings.
-- **Close**: Exit without saving.
-
-> ⚠️ Make sure all required fields (marked with `*`) are configured before saving to ensure AI-based shortlisting works effectively.
+- **Search Bar**: Use the top-right search input to filter job listings quickly.
+- **Pagination**: Navigate through multiple job records using Previous/Next buttons.
+- **Entries Dropdown**: Control how many records to show per page (10, 25, 50, etc.).
 
 ---
 
-## 🔐 Admin Notes
+## 📤 Uploading Candidate Profiles
 
-Only authorized administrators should configure these settings. Improper threshold weights may result in inaccurate candidate shortlisting.
+To upload candidates for a specific job:
 
+1. Scroll to the **bottom section** titled: `Upload Candidate's Profile`.
+2. Use the **dropdown or selector** to choose a Job Title or Job Code.
+3. Click **Choose File** to upload the candidate's resume/document (`PDF`, `DOCX`, etc.).
+4. Click the **Upload** button to submit the profile.
+
+> ⚠️ Ensure the file meets required format and naming conventions if specified.
+
+---
+
+## 🛠️ Best Practices
+
+- **Match Uploads to Correct Job**: Always confirm the selected job before uploading profiles.
+- **Update Status**: Update job statuses (`Initial Screening`, `Interviewing`, `Closed`) as candidates progress.
+- **Check Experience Match**: Ensure candidate experience aligns with the experience level shown.
+
+---
+
+## ✅ Summary
+
+This section empowers Admins to:
+- Track which jobs need candidate uploads.
+- Quickly view job posting activity and status.
+- Seamlessly upload and assign candidate profiles to relevant openings.
+
+---
+
+Let me know if you'd like a UI wireframe or React component for the candidate upload feature.
