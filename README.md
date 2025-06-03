@@ -1,31 +1,21 @@
-<!-- Include Docsify core and search plugin -->
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
 <script>
-  window.$docsify = {
-    name: 'My Documentation',
-    loadNavbar: true,
-    search: {
-      paths: 'auto',
-      placeholder: '🔍 Search...',
-      noData: 'No results!',
-      depth: 2,
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(() => {
+    const originalSearchBox = document.querySelector('.search input');
+    const navbar = document.querySelector('nav');
+    
+    if (originalSearchBox && navbar) {
+      const clonedInput = originalSearchBox.cloneNode(true);
+      clonedInput.classList.add('nav-search');
+      navbar.appendChild(clonedInput);
+
+      // SYNC: Trigger search via sidebar input
+      clonedInput.addEventListener('input', function () {
+        originalSearchBox.value = clonedInput.value;
+        const event = new Event('input', { bubbles: true });
+        originalSearchBox.dispatchEvent(event);
+      });
     }
-  };
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(() => {
-      const searchBox = document.querySelector('.search input');
-      if (searchBox) {
-        const navbar = document.querySelector('nav');
-        const clone = searchBox.cloneNode(true);
-        clone.placeholder = '🔍 Search Docs';
-        clone.style.marginLeft = '20px';
-        navbar.appendChild(clone);
-      }
-    }, 1000); // wait for search to load
-  });
+  }, 800); // Ensure DOM and search plugin are ready
+});
 </script>
