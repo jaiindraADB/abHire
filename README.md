@@ -1,63 +1,69 @@
-# 👤 Candidates Management – Admin Guide
+# 🧑‍💼 Job Post Candidates – Admin Guide
 
-The **Candidates** page allows administrators and recruiters to **view, manage, and upload candidates' profiles** for specific job openings.
+The **Job Post Candidates** page provides detailed insights into the **candidates who have applied or been uploaded** for a specific job.
 
 ---
 
-## 📋 Candidates Table Overview
+## 📄 Job Details Summary
 
-This section displays all job openings along with candidate upload status.
+Before viewing the candidate list, a job summary is displayed:
+
+| Field | Value |
+|-------|-------|
+| **Code** | `AD-25029` |
+| **Title** | `Front End Developer 1` |
+| **Location** | `Remote` |
+| **Open Posts** | `1` |
+| **Created At** | `2025-05-22` |
+| **Status** | `Active` |
+| **Experience Level** | `Entry Level (0-2 Years)` |
+
+---
+
+## 👥 Candidates Table
+
+This table displays **all candidates** associated with the job post.
 
 | Column | Description |
 |--------|-------------|
-| **Code** | Unique Job Code (e.g., `@!-25020`, `AD-25029`). |
-| **Title** | Job title associated with the candidate upload (e.g., `Java Developer`). |
-| **Location** | Work location (`Remote`, `Onsite`, etc.). |
-| **Open Posts** | Number of positions open for that job. |
-| **Candidates Uploaded** | Number of candidate profiles uploaded to this job (if any). |
-| **Created At** | Date the job was created. |
-| **Status** | Job post status: `Active`, `Initial Screening`, `Deleted`, etc. |
-| **Experience Level** | Required experience level (e.g., `Entry`, `Mid`, `Lead`, `Director`). |
-| **Action** | Action buttons for uploading, editing, or viewing candidate details. |
+| **Name** | Candidate’s full name. |
+| **Total Experience** | Total years of experience (e.g., `5 years`). |
+| **Current Designation** | Current job title (e.g., `Software Engineer`). |
+| **Current Company** | Current employer (e.g., `Tech Corp`). |
+| **JD Matching** | Job description match percentage (AI-driven or manual). |
+| **Status** | Screening status (e.g., `Shortlisted`, `Interview Scheduled`, `Rejected`). |
+| **Notice Period** | Candidate's notice period duration (e.g., `30 days`). |
+| **Current CTC** | Current annual salary (e.g., `$80,000`). |
+| **Expected CTC** | Expected salary (e.g., `$90,000`). |
+| **Action** | Actions like view profile, schedule interview, or send communication. |
 
 ---
 
-## 🔍 Search & Navigation
+## 🔍 Candidate Filtering
 
-- **Search Bar**: Use the top-right search input to filter job listings quickly.
-- **Pagination**: Navigate through multiple job records using Previous/Next buttons.
-- **Entries Dropdown**: Control how many records to show per page (10, 25, 50, etc.).
-
----
-
-## 📤 Uploading Candidate Profiles
-
-To upload candidates for a specific job:
-
-1. Scroll to the **bottom section** titled: `Upload Candidate's Profile`.
-2. Use the **dropdown or selector** to choose a Job Title or Job Code.
-3. Click **Choose File** to upload the candidate's resume/document (`PDF`, `DOCX`, etc.).
-4. Click the **Upload** button to submit the profile.
-
-> ⚠️ Ensure the file meets required format and naming conventions if specified.
+- Use the **Search bar** at the top right to **filter by name, company, or designation**.
+- **Pagination controls** at the bottom allow you to move between pages.
+- Use **"Show entries" dropdown** to customize how many results to display.
 
 ---
 
-## 🛠️ Best Practices
+## 🛠️ Admin Actions (Suggestions)
 
-- **Match Uploads to Correct Job**: Always confirm the selected job before uploading profiles.
-- **Update Status**: Update job statuses (`Initial Screening`, `Interviewing`, `Closed`) as candidates progress.
-- **Check Experience Match**: Ensure candidate experience aligns with the experience level shown.
+- **Shortlist**: Tag candidates as shortlisted if they meet JD criteria.
+- **Schedule Interview**: Initiate interview round setup from here.
+- **Review JD Matching**: Validate or manually update AI-based matching scores.
+- **Communicate**: Send follow-up emails or WhatsApp alerts if enabled.
 
 ---
 
 ## ✅ Summary
 
-This section empowers Admins to:
-- Track which jobs need candidate uploads.
-- Quickly view job posting activity and status.
-- Seamlessly upload and assign candidate profiles to relevant openings.
+This section centralizes all candidate data for a specific job and allows:
+
+- Efficient screening based on experience, salary, and fit.
+- Structured actions to move candidates forward in the hiring pipeline.
+- Quick identification of top-matching profiles via JD Matching %.
 
 ---
 
-Let me know if you'd like a UI wireframe or React component for the candidate upload feature.
+> 📌 Pro Tip: Use **filters and matching scores** to reduce manual screening and save recruiter time.
