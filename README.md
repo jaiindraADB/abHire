@@ -1,102 +1,103 @@
-# 🧾 Module: Edit Job Details
+# 📢 Module: Job Posting
 
-## 🔍 Overview
-The **Edit Job Details** section in the AbHire portal allows recruiters and hiring managers to create or update job postings with detailed information, preferences, and screening questions.
-
----
-
-## 🧷 Sections
-
-### 🗂️ 1. Job Overview
-| Field                 | Description                                                  |
-|----------------------|--------------------------------------------------------------|
-| **Job Title***        | Official job designation (e.g., Java Developer).             |
-| **Job Code**          | Unique job reference code (alphanumeric).                   |
-| **Client Name**       | Name of the client or organization hiring.                  |
-| **Location**          | Job location (e.g., city, address).                         |
-| **Job Type***         | Employment type – Full-Time, Part-Time, Internship, etc.    |
-| **Work Model***       | Work location model – Work from Office, Remote, Hybrid.     |
-| **Open Positions**    | Number of vacancies for this role.                          |
-| **Industry**          | Relevant industry (e.g., IT, Finance).                      |
+The **Job Posting** module in the AbHire Portal allows recruiters to manage, create, and update job opportunities efficiently.
 
 ---
 
-### 💰 2. Salary
-| Field                 | Description                                                  |
-|----------------------|--------------------------------------------------------------|
-| **Salary Currency***  | Currency (e.g., USD, INR).                                   |
-| **Minimum Salary***   | Minimum salary offered.                                      |
-| **Maximum Salary***   | Maximum salary offered.                                      |
+## 🔄 1. Active Job Post Listing
+
+This section displays all **active job posts** that are currently visible to candidates.
+
+### 📋 Features
+
+| Feature                  | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| **Job Title**             | Title of the posted job (e.g., Java Developer).                             |
+| **Client Name**           | The company or client hiring for the role.                                  |
+| **Location**              | Job location (e.g., New York, Remote).                                      |
+| **Status**                | Job visibility status – Active/Inactive.                                   |
+| **Created By**            | The recruiter or hiring manager who created the job post.                   |
+| **Actions**               | Includes buttons for:                                                       |
+|                          | - 📝 **Edit Job** to modify job details                                     |
+|                          | - ❌ **Delete** to remove the job post                                      |
+|                          | - 👁️ **Preview** to view the public job post                               |
+
+### 🔍 Search and Filter
+Use filters to narrow down jobs by:
+- Job Title
+- Client Name
+- Status
+- Created Date
 
 ---
 
-### 📑 3. Job Details
-**Job Description**
-Write detailed responsibilities, expectations, and tasks such as:
-- Developing and maintaining Java applications
-- Participating in code reviews
-- Collaborating with cross-functional teams
-- Testing and debugging
-- Documenting code and processes
+## 🛠️ 2. Job Editor
+
+The **Job Editor** allows users to create or edit job posts in detail. This is accessible via the **“Add Job”** or **“Edit”** button.
+
+### 🧾 Sections Inside Job Editor:
+
+#### 📄 Job Overview
+- **Job Title*** – Required job name.
+- **Job Code** – Unique identifier for internal tracking.
+- **Client Name** – The client company name.
+- **Location** – Job location.
+- **Job Type*** – Full-Time, Part-Time, Contract, etc.
+- **Work Model*** – Work from Office, Remote, Hybrid.
+- **Number of Open Positions** – Number of candidates required.
+- **Industry** – Related industry (e.g., IT, Finance).
+
+#### 💸 Salary Details
+- **Salary Currency*** – INR, USD, etc.
+- **Minimum Salary*** – Lower limit of salary range.
+- **Maximum Salary*** – Upper limit of salary range.
+
+#### 🧠 Skills & Experience
+- **Skills Required*** – Add key technologies or soft skills.
+- **Experience Level*** – Entry Level, Mid Level, Senior Level.
+- **Education Level*** – Required qualification (e.g., Bachelor’s).
+
+#### 📜 Job Description
+Add job duties, responsibilities, and role expectations. Use bullet points for clarity.
+
+#### 👥 Recruiters
+Assign one or more internal recruiters responsible for managing the job post.
+
+#### 🧪 Interview Rounds
+Add custom interview stages:
+- Round Number
+- Round Name
+- Duration
+- AI Scheduling option
+
+#### ❓ Additional Questions
+Add screening questions:
+- Question Text
+- Expected Answer
+- Mandatory toggle
 
 ---
 
-### 🧠 4. Skills Required
-| Field          | Description                                  |
-|----------------|----------------------------------------------|
-| **Add Skill**   | Click to add technical/non-technical skills. |
-| **Experience Level*** | Entry, Mid, or Senior level.             |
-| **Education Level***  | Required education (e.g., Bachelor’s).   |
+## ✅ Actions
+
+| Button             | Description                                         |
+|--------------------|-----------------------------------------------------|
+| **Save Changes**    | Saves job post as active or draft depending on input. |
+| **Reset**           | Clears all fields in the editor.                    |
+| **Preview**         | Opens a preview window of how job will appear.     |
 
 ---
 
-### 👥 5. Recruiters
-| Field             | Description                                        |
-|------------------|----------------------------------------------------|
-| **Select Recruiters** | Assign responsible recruiters for this job.    |
+## 🧠 Best Practices
+
+- Keep **Job Titles** clear and standard (avoid abbreviations).
+- Mention **salary range** to improve application rates.
+- Define **interview rounds** early for better coordination.
+- Use **custom screening questions** to reduce unqualified applicants.
 
 ---
 
-### 📓 6. Notes
-Enter any internal or candidate-facing notes related to this job posting.
-
----
-
-## 🗂️ Interview Rounds
-This section helps define structured interview processes.
-
-| Field         | Description                                  |
-|---------------|----------------------------------------------|
-| **Round No.**  | Order of the interview round.                |
-| **Round Name** | e.g., Technical, HR, Managerial.             |
-| **Duration**   | Expected time for the round.                 |
-| **AI Scheduling** | Toggle for AI-powered schedule optimization. |
-
-> 📌 Click **"Add New Round"** to create custom interview rounds.
-
----
-
-## ❓ Additional Questions
-Custom pre-screening questions to evaluate candidates.
-
-| Field              | Description                                 |
-|-------------------|---------------------------------------------|
-| **Question**        | Write the interview or screening question.  |
-| **Expected Answer** | Define ideal responses for reference.       |
-| **Is Mandatory**    | Mark if answering is compulsory.            |
-
-> 📌 Click **"Add New Question"** to include custom questions in the application form.
-
----
-
-## 💾 Final Action
-- Click **"Save Changes"** to submit all job information.
-- Ensure all mandatory fields (`*`) are completed to avoid errors.
-
----
-
-## 🧠 Tips
-- Use precise Job Titles and clear Descriptions for better applicant matches.
-- Always assign at least one **recruiter** to monitor application flow.
-- Utilize **Additional Questions** to filter unqualified applicants early.
+## 🔗 Navigation
+- 📄 [Go to Active Jobs](#/jobs/active)
+- ➕ [Add a New Job](#/jobs/new)
 
