@@ -1,34 +1,25 @@
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-  const Userusername = document.getElementById('username');
-  const Userpassword = document.getElementById('password');
-  const submitbutton = document.getElementById('Submit');
+ document.getElementById('submit').addEventListener('click', async () => {
+      const email = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const messageDiv = document.getElementById('message');
 
-  submitbutton.onclick = function () {
-    const email = Userusername.value;
-    const password = Userpassword.value;
+      messageDiv.textContent = '';
 
-    axios.post('https://abhirebackend.onrender.com/auth/login', {
-      email,
-      password
-    }, {
-      headers: {
-        'Content-Type': 'application/json'
+      if (!email || !password) {
+        messageDiv.textContent = 'Please enter both email and password.';
+        return;
       }
-    })
-    .then(response => {
-      console.log('Login successful:', response.data);
-      // TODO: Store token or redirect user
-      // localStorage.setItem('token', response.data.token);
-    })
-    .catch(error => {
-      if (error.response) {
-        console.error('Login failed:', error.response.data.message);
-        alert('Login failed: ' + error.response.data.message);
-      } else {
-        console.error('Error:', error.message);
-        alert('Unexpected error occurred');
-      }
-    });
-  };
-</script>
+
+      try {
+        const response = await axios.post('https://abhirebackend.onrender.com/auth/login', {
+          email,
+          password
+        }, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        console.log('Login success:', response.data);
+        messageDiv.className = 'success';
+        messageDiv.textContent = 'Login successful!';
