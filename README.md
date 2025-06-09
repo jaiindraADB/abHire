@@ -1,106 +1,114 @@
-import { useState } from "react";
-import axios from "axios";
-
-const API_BASE_URL = "https://abhirebackend.onrender.com";
-
-export default function ProfileDetailsCard() {
-  const [showModal, setShowModal] = useState(false);
-  const [modalData, setModalData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const openModal = async () => {
-    setShowModal(true);
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get(`${API_BASE_URL}/hiringflow/steps`);
-      if (Array.isArray(response.data?.data)) {
-        setModalData(response.data.data);
-      } else {
-        setModalData([]);
-        setError("No data found.");
-      }
-    } catch (err) {
-      console.error("Modal fetch error:", err);
-      setError("Failed to load data.");
-    } finally {
-      setLoading(false);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modal with API Dropdown</title>
+  <style>
+    /* Basic styles for modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
     }
-  };
 
-  const closeModal = () => {
-    setShowModal(false);
-    setModalData([]);
-    setError("");
-  };
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      text-align: center;
+    }
 
-  return (
-    <div className="p-6">
-      <button
-        onClick={openModal}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Open Modal
-      </button>
+    .btn {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
 
-      {showModal && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex items-center justify-center">
-          <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-4xl relative">
-            <h2 className="text-xl font-bold mb-4">Hiring Flow Steps</h2>
+    .btn-close {
+      background-color: #dc3545;
+      margin-top: 10px;
+    }
 
-            {loading && (
-              <div className="text-gray-600 mb-4">Loading data...</div>
-            )}
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+    }
 
-            {error && (
-              <div className="text-red-600 font-medium mb-4">{error}</div>
-            )}
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #007bff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
-            {!loading && !error && modalData.length > 0 && (
-              <table className="table-auto w-full border-collapse border border-gray-300">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="border px-3 py-2">ID</th>
-                    <th className="border px-3 py-2">Step Name</th>
-                    <th className="border px-3 py-2">Step Code</th>
-                    <th className="border px-3 py-2">Description</th>
-                    <th className="border px-3 py-2">Level</th>
-                    <th className="border px-3 py-2">Configurable</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {modalData.map((step, index) => (
-                    <tr key={step.hiringflow_steps_master_id || index}>
-                      <td className="border px-3 py-2">
-                        {step.hiringflow_steps_master_id}
-                      </td>
-                      <td className="border px-3 py-2">{step.step_name}</td>
-                      <td className="border px-3 py-2">{step.step_code}</td>
-                      <td className="border px-3 py-2">{step.description}</td>
-                      <td className="border px-3 py-2">{step.step_level}</td>
-                      <td className="border px-3 py-2">
-                        {step.is_configurable ? "Yes" : "No"}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+  <!-- Button to open modal -->
+  <button class="btn" onclick="openModal()">Open Modal</button>
 
-            {!loading && !error && modalData.length === 0 && (
-              <div className="text-gray-500">No data available.</div>
-            )}
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2>Select Priority</h2>
 
-            <button
-              onClick={closeModal}
-              className="absolute top-3 right-3 text-gray-500 hover:text-black"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+      <!-- Dropdown will be populated dynamically -->
+      <select id="priorityDropdown">
+        <option>Loading...</option>
+      </select>
+
+      <!-- Navigation Link -->
+      <a href="next-page.html">Go to Next Page</a><br>
+
+      <!-- Close Button -->
+      <button class="btn btn-close" onclick="closeModal()">Close</button>
     </div>
-  );
-}
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "flex";
+      loadDropdown();
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    function loadDropdown() {
+      const dropdown = document.getElementById("priorityDropdown");
+      dropdown.innerHTML = "<option>Loading...</option>";
+
+      // Replace this with your actual API endpoint
+      fetch("https://api.example.com/priority")
+        .then(response => response.json())
+        .then(data => {
+          dropdown.innerHTML = "";
+          data.forEach(item => {
+            const option = document.createElement("option");
+            option.value = item.value;
+            option.text = item.label;
+            dropdown.appendChild(option);
+          });
+        })
+        .catch(error => {
+          dropdown.innerHTML = "<option>Error loading data</option>";
+          console.error("Dropdown API Error:", error);
+        });
+    }
+  </script>
+
+</body>
+</html>
+merge
+react code to this
