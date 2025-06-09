@@ -1,21 +1,67 @@
-// src/components/ui/table.jsx
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
-export function Table({ children }) {
+const API_BASE_URL = 'https://abhirebackend.onrender.com';
+
+export default function ProfileDetailsCard() {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const API_URL = `${API_BASE_URL}/hiringflow/steps`;
+        const response = await axios.get(API_URL);
+        setData(response.data); // Direct array from API
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+        setError('Failed to fetch');
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-      {children}
-    </table>
-  )
-}
+    <div className="d-flex flex-col">
+      <div className="flex flex-wrap">
+        <div className="bg-white dark:bg-white/[0.03] mt-6 p-6 rounded-xl shadow-md w-full">
+          <h4 className="text-lg font-semibold mb-4">Experience</h4>
 
-export function TableHeader({ children }) {
-  return <thead style={{ background: '#f0f0f0' }}>{children}</thead>
-}
+          {error && (
+            <div className="text-red-600 font-medium mb-4">{error}</div>
+          )}
 
-export function TableRow({ children }) {
-  return <tr>{children}</tr>
-}
+          <table className="table-auto w-full border-collapse border border-gray-300">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border px-4 py-2">ID</th>
+                <th className="border px-4 py-2">Step Name</th>
+                <th className="border px-4 py-2">Step Code</th>
+                <th className="border px-4 py-2">Description</th>
+                <th className="border px-4 py-2">Level</th>
+                <th className="border px-4 py-2">Configurable</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((step, index) => (
+                <tr key={step.hiringflow_steps_master_id || index}>
+                  <td className="border px-4 py-2">{step.hiringflow_steps_master_id}</td>
+                  <td className="border px-4 py-2">{step.step_name}</td>
+                  <td className="border px-4 py-2">{step.step_code}</td>
+                  <td className="border px-4 py-2">{step.description}</td>
+                  <td className="border px-4 py-2">{step.step_level}</td>
+                  <td className="border px-4 py-2">{step.is_configurable ? 'Yes' : 'No'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-export function TableCell({ children }) {
-  return <td style={{ padding: '8px', border: '1px solid #ddd' }}>{children}</td>
+          {data.length === 0 && !error && (
+            <div className="text-gray-500 mt-4">No steps available.</div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
