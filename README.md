@@ -1,111 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hiring Flow Table</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid #cccccc;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #f3f3f3;
-    }
-    #loadBtn {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-  <button id="loadBtn" onclick="loadTableData()">Load Hiring Flow Steps</button>
+function PriorityModal() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [priorities, setPriorities] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  <div id="tableContainer">
-    <!-- Table will render here -->
-  </div>
-
-  <script>
-    function loadTableData() {
-      const container = document.getElementById("tableContainer");
-      container.innerHTML = "<p>Loading...</p>";
-
-      fetch("https://api.example.com/hiringflow/steps") // Replace with your actual API
-        .then(response => response.json())
-        .then(data => {
-          if (!Array.isArray(data) || data.length === 0) {
-            container.innerHTML = "<p>No data found.</p>";
-            return;
-          }
-
-          const table = document.createElement("table");
-          const thead = document.createElement("thead");
-          const headerRow = document.createElement("tr");
-
-          // Define the keys to show (in order)
-          const headers = [
-            "hiringflow_steps_master_id",
-            "step_name",
-            "step_code",
-            "description",
-            "step_level",
-            "is_configurable",
-            "is_active",
-            "created_at"
-          ];
-
-          headers.forEach(key => {
-            const th = document.createElement("th");
-            th.textContent = key.replace(/_/g, " ").toUpperCase();
-            headerRow.appendChild(th);
-          });
-
-          thead.appendChild(headerRow);
-          table.appendChild(thead);
-
-          const tbody = document.createElement("tbody");
-
-          data.forEach(item => {
-            const row = document.createElement("tr");
-
-            headers.forEach(key => {
-              const td = document.createElement("td");
-              let value = item[key];
-
-              // Format booleans as Yes/No
-              if (typeof value === "boolean") {
-                value = value ? "Yes" : "No";
-              }
-
-              // Truncate ISO datetime
-              if (key === "created_at" && typeof value === "string") {
-                value = new Date(value).toLocaleString();
-              }
-
-              td.textContent = value ?? "-";
-              row.appendChild(td);
-            });
-
-            tbody.appendChild(row);
-          });
-
-          table.appendChild(tbody);
-          container.innerHTML = ""; // Clear loading
-          container.appendChild(table);
+  // Fetch priorities from API when modal opens
+  useEffect(() => {
+    if (isModalOpen) {
+      setLoading(true);
+      fetch("https://yourapi.com/priorities")  // Replace with actual Priority API URL
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch priorities");
+          return res.json();
         })
-        .catch(error => {
-          console.error("API Error:", error);
-          container.innerHTML = "<p style='color:red;'>Failed to load data.</p>";
+        .then((data) => {
+          setPriorities(data); // Adjust based on API response structure
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
         });
     }
-  </script>
+  }, [isModalOpen]);
 
-</body>
-</html>
+  return (
+    <>
+      <button onClick={() => setIsModalOpen(true)}>
+        Open Priority Modal
+      </button>
+
+      {isModalOpen && (
+        <div style={modalStyles.overlay}>
+          <div style={modalStyles.content}>
+            <h2>Select Priority</h2>
+
+            {loading && <p>Loading priorities...</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>}
+
+            {!loading && !error && (
+              <select>
+                <option value="">Select Priority</option>
+                {priorities.map((priority) => (
+                  <option key={priority.id} value={priority.id}>
+                    {priority.name}
+                  </option>
+                ))}
+              </select>
+            )}
+
+            <div style={{ marginTop: "20px" }}>
+              <Link to="/some-route" onClick={() => setIsModalOpen(false)}>
+                Go to Some Page
+              </Link>
+            </div>
+
+            <button
+              style={{ marginTop: "10px" }}
+              onClick={() => setIsModalOpen(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+const modalStyles = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    background: "#fff",
+    padding: "20px",
+    borderRadius: "5px",
+    width: "300px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+    textAlign: "center",
+  },
+};
+
+export default PriorityModal;
