@@ -8,6 +8,9 @@ const [formData, setFormData] = useState({
   contact_phone: "",
   Notes: "",
 });
+const handleChange = (e) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
 const adddTolist = () => {
   if (!formData.Client_Name || !formData.Location || !formData.country) {
     alert("Please fill all required fields.");
