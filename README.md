@@ -1,96 +1,71 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-function PriorityModal() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [priorities, setPriorities] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  // Fetch priorities from API when modal opens
-  useEffect(() => {
-    if (isModalOpen) {
-      setLoading(true);
-      fetch("https://yourapi.com/priorities")  // Replace with actual Priority API URL
-        .then((res) => {
-          if (!res.ok) throw new Error("Failed to fetch priorities");
-          return res.json();
-        })
-        .then((data) => {
-          setPriorities(data); // Adjust based on API response structure
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setLoading(false);
-        });
-    }
-  }, [isModalOpen]);
-
-  return (
-    <>
-      <button onClick={() => setIsModalOpen(true)}>
-        Open Priority Modal
-      </button>
-
-      {isModalOpen && (
-        <div style={modalStyles.overlay}>
-          <div style={modalStyles.content}>
-            <h2>Select Priority</h2>
-
-            {loading && <p>Loading priorities...</p>}
-            {error && <p style={{ color: "red" }}>{error}</p>}
-
-            {!loading && !error && (
-              <select>
-                <option value="">Select Priority</option>
-                {priorities.map((priority) => (
-                  <option key={priority.id} value={priority.id}>
-                    {priority.name}
-                  </option>
-                ))}
-              </select>
-            )}
-
-            <div style={{ marginTop: "20px" }}>
-              <Link to="/some-route" onClick={() => setIsModalOpen(false)}>
-                Go to Some Page
-              </Link>
-            </div>
-
-            <button
-              style={{ marginTop: "10px" }}
-              onClick={() => setIsModalOpen(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </>
-  );
+/* Container */
+.d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: #f9fafb; /* light background */
+  min-height: 100vh;
 }
 
-const modalStyles = {
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  content: {
-    background: "#fff",
-    padding: "20px",
-    borderRadius: "5px",
-    width: "300px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
-    textAlign: "center",
-  },
-};
+/* Card */
+.bg-white {
+  background-color: #ffffff;
+  border-radius: 1rem; /* rounded-xl */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  padding: 1.5rem; /* p-6 */
+  max-width: 100%;
+  overflow-x: auto; /* horizontal scroll on small screens */
+}
 
-export default PriorityModal;
+/* Heading */
+h4 {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #111827; /* dark text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+/* Table Head */
+thead {
+  background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+thead th {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+}
+
+/* Table Body */
+tbody td {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  color: #4b5563; /* gray-600 */
+}
+
+/* Alternate Row Coloring */
+tbody tr:nth-child(even) {
+  background-color: #f9fafb; /* light gray */
+}
+
+/* Responsive: scroll horizontally on small screens */
+@media (max-width: 640px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
