@@ -1,114 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Modal with API Dropdown</title>
+  <meta charset="UTF-8" />
+  <title>Hiring Flow Table</title>
   <style>
-    /* Basic styles for modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      padding: 20px;
-      width: 300px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .btn {
-      padding: 10px 15px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .btn-close {
-      background-color: #dc3545;
-      margin-top: 10px;
-    }
-
-    select {
+    table {
       width: 100%;
-      padding: 8px;
-      margin-top: 10px;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
-
-    a {
-      display: inline-block;
-      margin-top: 15px;
-      color: #007bff;
-      text-decoration: underline;
+    th, td {
+      border: 1px solid #cccccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f3f3f3;
+    }
+    #loadBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Button to open modal -->
-  <button class="btn" onclick="openModal()">Open Modal</button>
+  <button id="loadBtn" onclick="loadTableData()">Load Hiring Flow Steps</button>
 
-  <!-- Modal HTML -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <h2>Select Priority</h2>
-
-      <!-- Dropdown will be populated dynamically -->
-      <select id="priorityDropdown">
-        <option>Loading...</option>
-      </select>
-
-      <!-- Navigation Link -->
-      <a href="next-page.html">Go to Next Page</a><br>
-
-      <!-- Close Button -->
-      <button class="btn btn-close" onclick="closeModal()">Close</button>
-    </div>
+  <div id="tableContainer">
+    <!-- Table will render here -->
   </div>
 
   <script>
-    function openModal() {
-      document.getElementById("myModal").style.display = "flex";
-      loadDropdown();
-    }
+    function loadTableData() {
+      const container = document.getElementById("tableContainer");
+      container.innerHTML = "<p>Loading...</p>";
 
-    function closeModal() {
-      document.getElementById("myModal").style.display = "none";
-    }
-
-    function loadDropdown() {
-      const dropdown = document.getElementById("priorityDropdown");
-      dropdown.innerHTML = "<option>Loading...</option>";
-
-      // Replace this with your actual API endpoint
-      fetch("https://api.example.com/priority")
+      fetch("https://api.example.com/hiringflow/steps") // Replace with your actual API
         .then(response => response.json())
         .then(data => {
-          dropdown.innerHTML = "";
-          data.forEach(item => {
-            const option = document.createElement("option");
-            option.value = item.value;
-            option.text = item.label;
-            dropdown.appendChild(option);
+          if (!Array.isArray(data) || data.length === 0) {
+            container.innerHTML = "<p>No data found.</p>";
+            return;
+          }
+
+          const table = document.createElement("table");
+          const thead = document.createElement("thead");
+          const headerRow = document.createElement("tr");
+
+          // Define the keys to show (in order)
+          const headers = [
+            "hiringflow_steps_master_id",
+            "step_name",
+            "step_code",
+            "description",
+            "step_level",
+            "is_configurable",
+            "is_active",
+            "created_at"
+          ];
+
+          headers.forEach(key => {
+            const th = document.createElement("th");
+            th.textContent = key.replace(/_/g, " ").toUpperCase();
+            headerRow.appendChild(th);
           });
+
+          thead.appendChild(headerRow);
+          table.appendChild(thead);
+
+          const tbody = document.createElement("tbody");
+
+          data.forEach(item => {
+            const row = document.createElement("tr");
+
+            headers.forEach(key => {
+              const td = document.createElement("td");
+              let value = item[key];
+
+              // Format booleans as Yes/No
+              if (typeof value === "boolean") {
+                value = value ? "Yes" : "No";
+              }
+
+              // Truncate ISO datetime
+              if (key === "created_at" && typeof value === "string") {
+                value = new Date(value).toLocaleString();
+              }
+
+              td.textContent = value ?? "-";
+              row.appendChild(td);
+            });
+
+            tbody.appendChild(row);
+          });
+
+          table.appendChild(tbody);
+          container.innerHTML = ""; // Clear loading
+          container.appendChild(table);
         })
         .catch(error => {
-          dropdown.innerHTML = "<option>Error loading data</option>";
-          console.error("Dropdown API Error:", error);
+          console.error("API Error:", error);
+          container.innerHTML = "<p style='color:red;'>Failed to load data.</p>";
         });
     }
   </script>
 
 </body>
 </html>
-merge
-react code to this
